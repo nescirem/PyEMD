@@ -2,6 +2,7 @@
 [![BuildStatus](https://travis-ci.org/laszukdawid/PyEMD.png?branch=master)](https://travis-ci.org/laszukdawid/PyEMD)
 [![DocStatus](https://readthedocs.org/projects/pyemd/badge/?version=latest)](https://pyemd.readthedocs.io/)
 [![Codacy](https://api.codacy.com/project/badge/Grade/5385d5ddc8e84908bd4e38f325443a21)](https://www.codacy.com/app/laszukdawid/PyEMD?utm_source=github.com&utm_medium=referral&utm_content=laszukdawid/PyEMD&utm_campaign=badger)
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A110NUD)
 
 # PyEMD
 
@@ -94,26 +95,32 @@ $S(t) = cos(22 \pi t^2) + 6t^2$
 Simplest case of using Ensemble EMD (EEMD) is by importing `EEMD` and
 passing your signal to the instance or `eemd()` method.
 
+**Windows**: Please don't skip the `if __name__ == "__main__"` section. 
+
 ```python
 from PyEMD import EEMD
 import numpy as np
 
-s = np.random.random(100)
-eemd = EEMD()
-eIMFs = eemd(s)
+if __name__ == "__main__":
+    s = np.random.random(100)
+    eemd = EEMD()
+    eIMFs = eemd(s)
 ```
 
 ### CEEMDAN
 
 As with previous methods, there is also simple way to use `CEEMDAN`.
 
+**Windows**: Please don't skip the `if __name__ == "__main__"` section. 
+
 ```python
 from PyEMD import CEEMDAN
 import numpy as np
 
-s = np.random.random(100)
-ceemdan = CEEMDAN()
-cIMFs = ceemdan(s)
+if __name__ == "__main__":
+    s = np.random.random(100)
+    ceemdan = CEEMDAN()
+    cIMFs = ceemdan(s)
 ```
 
 ### Visualisation
@@ -151,7 +158,7 @@ with the other modules one can use the default setting of an instance or, more e
 use the `emd2d()` method.
 
 ```python
-from PyEMD import EMD2D  #, BEMD
+from PyEMD.EMD2d import EMD2D  #, BEMD
 import numpy as np
 
 x, y = np.arange(128), np.arange(128).reshape((-1,1))

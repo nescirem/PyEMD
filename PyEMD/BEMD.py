@@ -16,7 +16,8 @@ from scipy.interpolate import Rbf
 try:
     from skimage.morphology import reconstruction
 except ImportError:
-    pass
+    raise ImportError("EMD2D and BEMD are not supported. Feel free to play around and improve them. " + \
+            "Required depdenecies are in `requriements-extra`.")
 
 class BEMD:
     """
@@ -36,8 +37,8 @@ class BEMD:
     The algorithm is based on Nunes et. al. [Nunes2003]_ work.
 
     .. [Nunes2003] J.-C. Nunes, Y. Bouaoune, E. Delechelle, O. Niang, P. Bunel.,
-    "Image analysis by bidimensional empirical mode decomposition. Image and Vision Computing",
-    Elsevier, 2003, 21 (12), pp.1019-1026.
+       "Image analysis by bidimensional empirical mode decomposition. Image and Vision Computing",
+       Elsevier, 2003, 21 (12), pp.1019-1026.
     """
 
     logger = logging.getLogger(__name__)
